@@ -2,6 +2,7 @@ package com.longi.cursosmc;
 
 import java.util.Arrays;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,12 +11,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.longi.cursosmc.dominio.Categoria;
 import com.longi.cursosmc.dominio.Produto;
 import com.longi.cursosmc.repositories.CategoriaRepository;
+import com.longi.cursosmc.repositories.ProdutoRepository;
 
 @SpringBootApplication
 public class CursosmcApplication implements CommandLineRunner{
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursosmcApplication.class, args);
@@ -38,6 +43,7 @@ public class CursosmcApplication implements CommandLineRunner{
 		p3.getCategorias().addAll(Arrays.asList(cat1));
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
+		produtoRepository.saveAll(Arrays.asList(p1, p2, p3));
 		
 	}
 
