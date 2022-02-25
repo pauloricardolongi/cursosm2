@@ -3,12 +3,15 @@ package com.longi.cursosmc;
 import java.util.Arrays;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.longi.cursosmc.dominio.Categoria;
+import com.longi.cursosmc.dominio.Cidade;
+import com.longi.cursosmc.dominio.Estado;
 import com.longi.cursosmc.dominio.Produto;
 import com.longi.cursosmc.repositories.CategoriaRepository;
 import com.longi.cursosmc.repositories.ProdutoRepository;
@@ -40,10 +43,20 @@ public class CursosmcApplication implements CommandLineRunner{
 		
 		p1.getCategorias().addAll(Arrays.asList(cat1));
 		p2.getCategorias().addAll(Arrays.asList(cat1, cat2));
-		p3.getCategorias().addAll(Arrays.asList(cat1));
+		p3.getCategorias().addAll(Arrays.asList(cat1));	
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3));
+		
+		Estado est1 = new Estado(null, "Minas Gerais");
+		Estado est2 = new Estado(null, "São Paulo");
+		
+		Cidade c1 = new Cidade(null, "Uberlaândia", est1);
+		Cidade c2 = new Cidade(null, "São Paulo", est2);
+		Cidade c3 = new Cidade(null, "Campinas", est2);
+		
+		est1.getCidades().addAll(Arrays.asList(c1));
+		est2.getCidades().addAll(Arrays.asList(c2, c3));
 		
 	}
 
