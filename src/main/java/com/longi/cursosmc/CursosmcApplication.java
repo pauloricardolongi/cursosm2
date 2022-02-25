@@ -14,6 +14,8 @@ import com.longi.cursosmc.dominio.Cidade;
 import com.longi.cursosmc.dominio.Estado;
 import com.longi.cursosmc.dominio.Produto;
 import com.longi.cursosmc.repositories.CategoriaRepository;
+import com.longi.cursosmc.repositories.CidadeRepository;
+import com.longi.cursosmc.repositories.EstadoRepository;
 import com.longi.cursosmc.repositories.ProdutoRepository;
 
 @SpringBootApplication
@@ -24,6 +26,11 @@ public class CursosmcApplication implements CommandLineRunner{
 	
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private EstadoRepository estadoRepository;
+	@Autowired
+	private CidadeRepository cidadeRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursosmcApplication.class, args);
@@ -57,6 +64,9 @@ public class CursosmcApplication implements CommandLineRunner{
 		
 		est1.getCidades().addAll(Arrays.asList(c1));
 		est2.getCidades().addAll(Arrays.asList(c2, c3));
+		
+		estadoRepository.saveAll(Arrays.asList(est1, est2));
+		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 		
 	}
 
