@@ -2,6 +2,7 @@ package com.longi.cursosmc.dominio;
 
 import java.io.Serializable;
 
+
 import java.util.Objects;
 
 import javax.persistence.Embeddable;

@@ -1,7 +1,6 @@
 package com.longi.cursosmc.dominio;
 
 import java.io.Serializable;
-
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -10,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Cidade implements Serializable {	
@@ -24,7 +21,7 @@ public class Cidade implements Serializable {
 	private Integer id;
 	private String nome;
 	
-	@JsonManagedReference
+	
 	@ManyToOne
 	@JoinColumn(name="estado_id")
 	private Estado estado;

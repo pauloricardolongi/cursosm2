@@ -1,6 +1,7 @@
 package com.longi.cursosmc.dominio;
 
 import java.io.Serializable;
+
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -11,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.longi.cursosmc.dominio.enums.EstadoPagamento;
 
 @Entity
@@ -24,9 +25,10 @@ public abstract class Pagamento implements Serializable {
 	private Integer id;
 	private Integer estado;
 
-	@JsonBackReference
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="pedido_id")
+	
 	@MapsId
 	private Pedido pedido;
 	
